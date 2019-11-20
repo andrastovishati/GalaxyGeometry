@@ -10,6 +10,10 @@ var galaxy = new THREE.Points(geometry, material);
 scene.add(galaxy);
 ```
 
+## Parameters
+
+* radius
+
 ## Note
 
 Please note that this type of geometry only have vertices (haven't faces, and uvs), so you can only use it for THREE.Points!
