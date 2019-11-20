@@ -13,6 +13,9 @@ scene.add(galaxy);
 ## Parameters
 
 * radius
+* numberOfStars
+* length
+* width
 
 ## Note
 
