@@ -12,4 +12,4 @@ scene.add(galaxy);
 
 ## Note
 
-Please note that this type of geometry only have vertices, so you can only use it for THREE.Points!
+Please note that this type of geometry only have vertices (haven't faces, and uvs), so you can only use it for THREE.Points!
