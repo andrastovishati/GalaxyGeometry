@@ -10,3 +10,6 @@ var galaxy = new THREE.Points(geometry, material);
 scene.add(galaxy);
 ```
 
+## Note
+
+Please note that this type of geometry only have vertices, so you can only use it for THREE.Points!
