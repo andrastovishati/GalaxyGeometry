@@ -1,3 +1,7 @@
+/**
+ * @author Andras Tovishati / https://github.com/andrastovishati/
+ */
+
 THREE.GalaxyGeometry = function(radius, numberOfStars, length, width) {
 
 	THREE.Geometry.call(this);
@@ -11,8 +15,13 @@ THREE.GalaxyGeometry = function(radius, numberOfStars, length, width) {
 		width:width
 	};
 
-	this.fromBufferGeometry(new THREE.GalaxyBufferGeometry(radius, numberOfStars, length, width));
-	this.mergeVertices();
+	var bufferGeometry = new THREE.GalaxyBufferGeometry(radius, numberOfStars, length, width);
+	var positions = bufferGeometry.attributes.position.array;
+	var itemSize = bufferGeometry.attributes.position.itemSize;
+
+	for (var i = 0; i < positions.length; i += itemSize){
+		this.vertices.push(new THREE.Vector3().fromArray(positions, i));
+	}
 
 };
 
@@ -58,10 +67,7 @@ THREE.GalaxyBufferGeometry = function(radius, numberOfStars, length, width) {
 
 	}
 
-	this.setIndex([]);
 	this.addAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-	this.addAttribute('normal', new THREE.Float32BufferAttribute([], 3));
-	this.addAttribute('uv', new THREE.Float32BufferAttribute([], 2));
 
 	function randSpread() {
 		return (Math.random() * width - (width / 2)) * (Math.random() * width - (width / 2));
